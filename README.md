@@ -16,6 +16,7 @@ The easiest way to get started is with the prebuilt AppImage from the Releases p
 
 ⬇️ [**Download latest AppImage**](https://github.com/ryanpaul01/IPVanish-Linux-Client/releases/latest/download/ipvanish-app-x86_64.AppImage)
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fryanpaul01%2FIPVanish-Linux-Client&label=Downloads&labelColor=%23697689&countColor=%23f47373)
 
 ---
 ## Features
