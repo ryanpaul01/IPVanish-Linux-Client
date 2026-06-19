@@ -14,9 +14,8 @@ A lightweight, open‑source **IPVanish VPN GUI client for Linux** written in Py
 
 The easiest way to get started is with the prebuilt AppImage from the Releases page.
 
-[Download latest AppImage](https://github.com/ryanpaul01/IPVanish-Linux-Client/releases/latest/download/ipvanish-app-x86_64.AppImage)
+⬇️ [**Download latest AppImage**](https://github.com/ryanpaul01/IPVanish-Linux-Client/releases/latest/download/ipvanish-app-x86_64.AppImage)
 
-- **File:** `ipvanish-app-x86_64.AppImage` 
 
 ---
 ## Features
