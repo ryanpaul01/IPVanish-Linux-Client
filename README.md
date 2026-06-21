@@ -6,29 +6,36 @@ A lightweight, open‑source **IPVanish VPN GUI client for Linux** written in Py
 
 ---
 
-<p align="center">
-  <img src="./icon.png" alt="IPVanish Linux Client Logo" width="140">
-</p>
-
 ## Download
 
 The easiest way to get started is with the prebuilt AppImage from the Releases page.
 
-⬇️ [**Download latest AppImage**](https://github.com/ryanpaul01/IPVanish-Linux-Client/releases/latest/download/ipvanish-app-x86_64.AppImage)
+⬇️ [**Download latest AppImage**](https://github.com/ryanpaul01/IPVanish-Linux-Client/releases/latest)
+
+Version 2.0
 
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fryanpaul01%2FIPVanish-Linux-Client&label=Downloads&labelColor=%23697689&countColor=%23f47373)
 
 ---
+
+<p align="center">
+  <img src="./screenshot.png" alt="IPVanish Linux Client UI">
+</p>
+
+---
+
 ## Features
 
-- ✅ Native **GUI client** for IPVanish on Linux (no CLI usage required)
+- ✅ Native **GUI client** for IPVanish on Linux
+- ✅ IPv6 kill switch
 - ✅ Written in **Python 3** for readability and easy contributions
 - ✅ **AppImage** build for portable, single‑file deployment on most x86_64 distributions
 - ✅ Integrated **WireGuard config download**: login → select server → click **Generate**
 - ✅ Automatically connects using the downloaded WireGuard configuration file
 - ✅ Displays **current country and IP address** at the top of the app window
 - ✅ Convenient **Disconnect** button in the top‑right corner
-- ✅ Uses NetworkManager / `nmcli` for reliable network control (where available)
+- ✅ Alert when update available
+- ✅ Uses NetworkManager / `nmcli` for vpn and `nft` for kill switch
 - ✅ 100% open source and community‑driven
 
 ---
@@ -41,7 +48,7 @@ Before running the app, ensure the following components are available on your sy
 
 - **Python 3.8+** (if running from source)
 - **WireGuard** (kernel module and userland tools)
-- **NetworkManager** with **`nmcli`**:
+- **NetworkManager** with **`nmcli` & `nft`**:
   - `nmcli` is typically installed by default on Ubuntu and many Debian‑based desktop systems that use NetworkManager.
   - On minimal/server installs you may need to install `network-manager`.
 
@@ -51,9 +58,6 @@ Before running the app, ensure the following components are available on your sy
 sudo apt update
 sudo apt install wireguard
 ```
-
-Some guides also recommend additional packages like `openresolv` depending on your use case.
-
 ### Install NetworkManager / nmcli (if missing)
 
 If `nmcli` is not present (for example on minimal Debian/Ubuntu images):
@@ -89,6 +93,7 @@ After installing NetworkManager, you may need to restart the service or reboot f
    - The app downloads the corresponding **WireGuard configuration file** for that server.
    - It then **automatically connects** using that WireGuard configuration via WireGuard and NetworkManager.
 8. When you want to stop the VPN connection, click the **Disconnect** button in the top‑right corner. It will also remove wireguard config from network manager.
+9. When connecting for first time, asks sudo password for IPv6 kill switch setup.
 
 ---
 
@@ -136,21 +141,6 @@ chmod +x build-appimage.sh
 
 ---
 
-## How the App Works
-
-The app is designed around a simple IPVanish + WireGuard flow:
-
-1. **Start** the application (AppImage or `python3 ipvanish-app.py`).
-2. **Log in** using your IPVanish account credentials.
-3. The app shows your **current country and IP address** at the top, so you immediately see whether you are on your original IP or a VPN IP.
-4. **Select a server** from the list in the main window.
-5. Click **Generate**:
-   - The app requests and downloads the **WireGuard config** for that server.
-   - It then automatically **brings up the WireGuard connection** using the downloaded config.
-6. While connected, the top bar continues to show updated **country/IP**, and the **Disconnect** button in the top‑right corner lets you quickly drop the VPN tunnel.
-7. Click **Disconnect** to cleanly shut down the WireGuard connection.
-
----
 
 ## Configuration & Data
 
@@ -160,17 +150,6 @@ The app is designed around a simple IPVanish + WireGuard flow:
 - The client should will store:
   - IPVanish cookie in plain text in ~/.config path
   - Private WireGuard configs in readable location ~/.config
-
----
-
-## Roadmap
-
-Potential future enhancements:
-
-- System tray icon with quick connect/disconnect
-- Kill‑switch and auto‑reconnect options
-
-Suggestions and PRs are welcome.
 
 ---
 
